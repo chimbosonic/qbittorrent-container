@@ -14,7 +14,10 @@ ENV QBITTORRENT_SIG_KEY=401E8827DA4E93E44C7D01E6D35164147CA69FC4
 SHELL ["/bin/bash", "-c"] 
 
 RUN groupadd --gid 1000 torrent \
-&& useradd -d /home/torrent -ms /bin/bash --system --gid 1000 --uid 1000 torrent
+&& useradd -d /home/torrent -ms /bin/bash --system --gid 1000 --uid 1000 torrent \
+&& mkdir -p /downloads \
+&& chown torrent:torrent /downloads \
+
 
 #Adds Qbittorrent's PPA repo
 RUN apt-get update \
@@ -22,19 +25,13 @@ RUN apt-get update \
 && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ${QBITTORRENT_SIG_KEY} \
 && source /etc/lsb-release \
 && echo "deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu ${DISTRIB_CODENAME} main" >> /etc/apt/sources.list \
-&& apt-get remove -y gpg \
-&& apt-get auto-remove -y\
-&& apt-get clean  \
-&& rm -rf /var/lib/apt/lists/*
-
-# Install Qbittorrent, tini and curl
-RUN apt-get update \
+&& apt-get update \
 && apt-get install -y curl tini qbittorrent-nox \
-&& apt-get auto-remove -y\
+&& apt-get remove -y gpg \
+&& apt-get auto-remove -y \
 && apt-get clean  \
 && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /downloads && chown torrent:torrent /downloads
 
 USER torrent
 
