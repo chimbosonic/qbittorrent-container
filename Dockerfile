@@ -16,7 +16,7 @@ SHELL ["/bin/bash", "-c"]
 RUN groupadd --gid 1000 torrent \
 && useradd -d /home/torrent -ms /bin/bash --system --gid 1000 --uid 1000 torrent \
 && mkdir -p /downloads \
-&& chown torrent:torrent /downloads \
+&& chown torrent:torrent /downloads
 
 
 #Adds Qbittorrent's PPA repo
