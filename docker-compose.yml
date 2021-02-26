@@ -1,0 +1,12 @@
+version: '3'
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: chimbosonic/qbittorrent:latest
+    ports:
+      - "52000:52000/tcp" # Bittorrent Port Set in WebUI
+      - "52000:52000/udp" # Bittorrent Port Set in WebUI
+    volumes:
+      - "config_dir:/home/torrent"
+      - "dowload_dir:/downloads"
+    restart: always
