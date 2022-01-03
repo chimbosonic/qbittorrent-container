@@ -6,6 +6,7 @@ services:
     ports:
       - "52000:52000/tcp" # Bittorrent Port Set in WebUI
       - "52000:52000/udp" # Bittorrent Port Set in WebUI
+      - "8080:8080/tcp" # Qbittorrent WebUI port
     volumes:
       - "config_dir:/home/torrent"
       - "dowload_dir:/downloads"
