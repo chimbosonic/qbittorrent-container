@@ -1,5 +1,5 @@
 # QBITTORRENT Container
-![pipeline status](https://gitlab.com/chimbosonic/qbittorrent-container/badges/master/pipeline.svg)
+![pipeline status](https://img.shields.io/gitlab/pipeline/chimbosonic/qbittorrent-container?link=https://gitlab.com/chimbosonic/qbittorrent-container/-/pipelines)
 
 This is a qbittorrent container with qbittorrent-nox from https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable.
 
