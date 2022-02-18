@@ -1,13 +1,21 @@
-# QBITTORRENT Container
-![pipeline status](https://gitlab.com/chimbosonic/qbittorrent-container/badges/master/pipeline.svg)
+# QBITTORRENT OCI image
+![pipeline status](https://github.com/chimbosonic/qbittorrent-container/actions/workflows/main.yml/badge.svg?branch=main)
 
-This is a qbittorrent container with qbittorrent-nox from https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable.
+This is a qbittorrent OCI image built with qbittorrent-nox from https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable.
 
 Base image is ubuntu:latest.
 
 The image is available on Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/qbittorrent)
 
-Source code and pipeline can be found [here](https://gitlab.com/chimbosonic/qbittorrent-container)
+Source code and pipeline can be found [here](https://github.com/chimbosonic/qbittorrent-container)
+
+## Image Verification
+The image is signed using [cosign](https://github.com/sigstore/cosign) from sigstore.
+
+You can verify the signature with:
+```bash
+cosign verify --key cosign.pub chimbosonic/qbittorrent:latest
+```
 
 ## Running it
 ### plain docker
@@ -38,3 +46,5 @@ This will build the container.
 ```bash
 make build
 ```
+## Misc
+Image used to be stored and built at https://gitlab.com/chimbosonic/qbittorrent-container that repo is now deprecated.
