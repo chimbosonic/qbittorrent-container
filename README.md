@@ -3,7 +3,7 @@
 
 This is a qbittorrent OCI image built with qbittorrent-nox from https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable.
 
-Base image is ubuntu:latest.
+Base image is ubuntu:impish.
 
 The image is available on Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/qbittorrent)
 
@@ -22,7 +22,7 @@ cosign verify --key cosign.pub chimbosonic/qbittorrent:latest
 Feel free to change the port and folder that contains your config and downloads.
 
 ```bash
-docker run -it --rm -p 8080:8080 -v "config_dir:/home/torrent" -v "dowload_dir:/downloads" --name qbittorrent -t chimbosonic/qbittorrent:latest
+docker run -it --rm -p 8080:8080 -v "config_dir:/home/torrent" -v "dowload_dir:/downloads" --name qbittorrent chimbosonic/qbittorrent:latest
 ```
 
 ### docker-compose
