@@ -3,7 +3,7 @@
 
 This is a qbittorrent OCI image built with qbittorrent-nox from https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable.
 
-Base image is ubuntu:impish.
+Base image is ubuntu:jammy.
 
 The image is available on Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/qbittorrent)
 
