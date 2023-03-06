@@ -5,7 +5,9 @@ This is a qbittorrent OCI image built with qbittorrent-nox from https://launchpa
 
 Base image is ubuntu:jammy.
 
-The image is available on Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/qbittorrent)
+The image can be pulled from the following repositories:
+- Docker Hub [here](https://hub.docker.com/repository/docker/chimbosonic/qbittorrent)
+- Quay.io [here](https://quay.io/repository/chimbosonic/qbittorrent)
 
 Source code and pipeline can be found [here](https://github.com/chimbosonic/qbittorrent-container)
 
