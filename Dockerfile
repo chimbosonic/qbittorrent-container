@@ -14,7 +14,7 @@ RUN apt-get update \
 && source /etc/lsb-release \
 && echo "deb http://ppa.launchpad.net/qbittorrent-team/qbittorrent-stable/ubuntu ${DISTRIB_CODENAME} main" >> /etc/apt/sources.list \
 && apt-get update \
-&& apt-get install -y curl tini qbittorrent-nox \
+&& apt-get install -y curl tini qbittorrent-nox python3 \
 && apt-get remove -y gpg \
 && apt-get auto-remove -y \
 && apt-get clean  \
