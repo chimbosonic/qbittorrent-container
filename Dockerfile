@@ -20,10 +20,13 @@ RUN apt-get update \
 && apt-get clean  \
 && rm -rf /var/lib/apt/lists/*
 
+COPY entrypoint.sh /bin/entrypoint.sh
+RUN chmod +x /bin/entrypoint.sh
+
 USER torrent
 
 EXPOSE 8080
 VOLUME /home/torrent /downloads
 HEALTHCHECK --interval=5s --timeout=3s --start-period=5s CMD curl --fail -I -L 'http://127.0.0.1:8080' || exit 1
 
-ENTRYPOINT ["tini","--","qbittorrent-nox"]
+ENTRYPOINT ["tini","--","/bin/entrypoint.sh"]

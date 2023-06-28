@@ -15,6 +15,7 @@ VCS_REF         := $(shell git rev-parse --short HEAD)
 ARGS= -t $(IMG) --build-arg BUILD_DATE=$(BUILD_DATE) --build-arg VCS_REF=$(VCS_REF) .
 BUILD=@docker build
 TAGS=@docker tag $(IMG) $(LATEST)
+
 build:
 	$(BUILD) $(ARGS)
 	$(TAGS)
@@ -37,6 +38,7 @@ test-signing-blob:
 	vault kv get -field=key secrets/$(PROJECT)/cosign > /tmp/$(PROJECT)/cosign.key
 	@COSIGN_PASSWORD=$(shell vault kv get -field=password secrets/$(PROJECT)/cosign) cosign sign-blob --key /tmp/$(PROJECT)/cosign.key ./README.md
 	rm -rf /tmp/$(PROJECT)
+
 test-signing-image: 
 	mkdir -p /tmp/$(PROJECT)/
 	vault kv get -field=key secrets/$(PROJECT)/cosign > /tmp/$(PROJECT)/cosign.key
